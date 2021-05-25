@@ -29,13 +29,15 @@ public class WebSocketEventListener {
         StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
 
         String username = (String) headerAccessor.getSessionAttributes().get("username");
+        String topicID = (String) headerAccessor.getSessionAttributes().get("topicID");
+
         if(username != null){
             logger.info(username + "유저의 연결이 끊겼습니다.");
             ChatMessage chatMessage = new ChatMessage();
             chatMessage.setType(MessageType.LEAVE);
             chatMessage.setSender(username);
 
-            messageTemplate.convertAndSend("/topic/apple",chatMessage);
+            messageTemplate.convertAndSend("/topic/"+topicID,chatMessage);
         }
     }
 }
