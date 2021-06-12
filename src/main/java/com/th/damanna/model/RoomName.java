@@ -14,6 +14,7 @@ public class RoomName {
 
     @Id
     private String roomID;
+    private String tags;
 
     public String getRoomID() {
         return roomID;
@@ -21,6 +22,14 @@ public class RoomName {
 
     public void setRoomID(String roomID) {
         this.roomID = roomID;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 
     @Override
