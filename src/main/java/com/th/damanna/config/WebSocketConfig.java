@@ -28,6 +28,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Bean
     public TaskScheduler heartBeatScheduler() {
+        // 지속해서 핑 보내주기
         return new ThreadPoolTaskScheduler();
     }
 
